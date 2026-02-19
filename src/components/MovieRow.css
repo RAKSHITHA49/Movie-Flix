@@ -1,0 +1,196 @@
+.movie-row {
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: rowFadeUp 0.6s ease-out forwards;
+}
+
+/* Alternate rows: even fade down from top, odd fade up from bottom */
+.movie-row:nth-of-type(even) {
+  animation-name: rowFadeDown;
+}
+
+@keyframes rowFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rowFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.movie-row-scroll .movie-card {
+  animation: cardFadeIn 0.5s ease-out backwards;
+}
+
+/* Odd cards: fade in from left (horizontal) */
+.movie-row-scroll .movie-card:nth-child(odd) {
+  animation-name: cardFadeFromLeft;
+}
+
+/* Even cards: fade in from right (horizontal) */
+.movie-row-scroll .movie-card:nth-child(even) {
+  animation-name: cardFadeFromRight;
+}
+
+.movie-row-scroll .movie-card:nth-child(1) { animation-delay: 0.04s; }
+.movie-row-scroll .movie-card:nth-child(2) { animation-delay: 0.08s; }
+.movie-row-scroll .movie-card:nth-child(3) { animation-delay: 0.12s; }
+.movie-row-scroll .movie-card:nth-child(4) { animation-delay: 0.16s; }
+.movie-row-scroll .movie-card:nth-child(5) { animation-delay: 0.2s; }
+.movie-row-scroll .movie-card:nth-child(6) { animation-delay: 0.24s; }
+.movie-row-scroll .movie-card:nth-child(7) { animation-delay: 0.28s; }
+.movie-row-scroll .movie-card:nth-child(8) { animation-delay: 0.32s; }
+.movie-row-scroll .movie-card:nth-child(9) { animation-delay: 0.36s; }
+.movie-row-scroll .movie-card:nth-child(n+10) { animation-delay: 0.4s; }
+
+@keyframes cardFadeFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardFadeFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fallback - cardFadeIn kept for compatibility */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.movie-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 0 4%;
+}
+
+.movie-row-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  opacity: 0;
+  animation: titleFadeFromLeft 0.5s ease-out 0.2s forwards;
+}
+
+@keyframes titleFadeFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.movie-row-arrows {
+  display: flex;
+  gap: 4px;
+}
+
+.movie-row-arrow:first-child {
+  opacity: 0;
+  animation: arrowFadeFromRight 0.4s ease-out 0.25s forwards;
+}
+
+.movie-row-arrow:last-child {
+  opacity: 0;
+  animation: arrowFadeFromLeft 0.4s ease-out 0.3s forwards;
+}
+
+@keyframes arrowFadeFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrowFadeFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.movie-row-arrow {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 4px;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.25s ease;
+}
+
+.movie-row-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.15);
+}
+
+.movie-row-arrow:active {
+  transform: scale(0.95);
+}
+
+.movie-row-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 4%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.movie-row-scroll::-webkit-scrollbar {
+  display: none;
+}

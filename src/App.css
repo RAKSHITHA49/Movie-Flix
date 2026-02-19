@@ -1,0 +1,4 @@
+/* App-level styles - minimal for login-focused app */
+* {
+  box-sizing: border-box;
+}
